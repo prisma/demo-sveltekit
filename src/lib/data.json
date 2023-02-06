@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "author": {
+            "name": "Alice",
+            "email": "alice@prisma.io"
+        },
+        "title": "Join the Prisma Slack",
+        "content": "https://slack.prisma.io",
+        "published": true
+    },
+    {
+        "id": 2,
+        "author": {
+            "name": "Nilu",
+            "email": "nilu@prisma.io"
+        },
+        "title": "Follow Prisma on Twitter",
+        "content": "https://www.twitter.com/prisma",
+        "published": true
+    },
+    {
+        "id": 3,
+        "author": {
+            "name": "Mahmoud",
+            "email": "mahmoud@prisma.io"
+        },
+        "title": "Ask a question about Prisma on GitHub",
+        "content": "https://www.github.com/prisma/prisma/discussions",
+        "published": true
+    }
+]
