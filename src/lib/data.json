@@ -28,5 +28,15 @@
         "title": "Ask a question about Prisma on GitHub",
         "content": "https://www.github.com/prisma/prisma/discussions",
         "published": true
+    },
+    {
+        "id": 4,
+        "author": {
+            "name": "Sonia",
+            "email": "lomo@prisma.io"
+        },
+        "title": "Check out our Prisma Examples. Happy hacking!",
+        "content": "https://github.com/prisma/prisma-examples",
+        "published": false
     }
 ]
