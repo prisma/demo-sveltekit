@@ -1,10 +1,6 @@
 <script lang="ts">
   import Post from '$lib/components/Post.svelte'
-  // import type { PageData } from './$types'
   import Data from "../lib/data.json"
-  
-  // data returned from +page.server.js
-
 
 </script>
 

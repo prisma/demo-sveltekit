@@ -1,12 +1,7 @@
 <script lang="ts">
-  // import type { Post } from '@prisma/client'
-
   export let data: any
 
   const { post } = data
-
-  
-  console.log("posts: prop ",post)
 
 </script>
 
