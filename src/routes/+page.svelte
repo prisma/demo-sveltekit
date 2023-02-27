@@ -1,7 +1,6 @@
 <script lang="ts">
-  import Post from '$lib/components/Post.svelte'
-  import Data from "../lib/data.json"
-
+  import Post from "$lib/components/Post.svelte";
+  import Data from "../lib/data.json";
 </script>
 
 <div>
@@ -9,7 +8,9 @@
   <main>
     <div>
       {#each Data as post (post.id)}
-        <Post {post} />
+        {#if post.published}
+          <Post {post} />
+        {/if}
       {/each}
     </div>
   </main>
