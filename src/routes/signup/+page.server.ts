@@ -1,14 +1,15 @@
-// src/route/signup/+page.server.ts
-
 import { fail } from '@sveltejs/kit';
 import prisma from "$lib/prisma";
 import { redirect } from '@sveltejs/kit';
+import type { Actions } from './$types';
 
-const validateEmail = (email: string) => {
+const validateEmail = (email: FormDataEntryValue) => {
+  if (typeof email != "string") {
+    return false
+  }
   return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
 }
 
-/** @type {import('./$types').Actions} */
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
@@ -33,4 +34,4 @@ export const actions = {
 
     throw redirect(303, `/drafts`)
   }
-};
+} satisfies Actions;

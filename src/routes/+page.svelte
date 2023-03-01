@@ -2,14 +2,14 @@
   import Post from '$lib/components/Post.svelte'
   import type { PageData } from './$types'
 
-  import data from "../lib/data.json"
+  export let data: PageData
 </script>
 
 <div>
   <h1>My Blog</h1>
   <main>
     <div>
-      {#each data as post (post.id)}
+      {#each data.feed as post (post.id)}
         <Post {post} />
       {/each}
     </div>

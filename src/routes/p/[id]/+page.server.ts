@@ -1,22 +1,18 @@
-// src/route/p/[id]/+page.server.ts
-
 import prisma from "$lib/prisma";
 import { redirect } from '@sveltejs/kit';
-//src/route/p/[id]/+page.server.ts
+import type { Actions, PageServerLoad } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async ({ params: { id } }: { params: { id: Number } }) => {
-    const post = await prisma.post.findUnique({
-      where: { id: Number(id) },
-      include: { author: true },
-    });
-  
-    return { post };
-  }; 
-  
-/** @type {import('./$types').Actions} */
+export const load = (async ({ params: { id } }) => {
+  const post = await prisma.post.findUnique({
+    where: { id: Number(id) },
+    include: { author: true },
+  });
+
+  return { post };
+}) satisfies PageServerLoad;
+
 export const actions = {
-  publishPost: async ({ params: { id } }: { params: { id: Number } }) => {
+  publishPost: async ({ params: { id } }) => {
     await prisma.post.update({
       where: { id: Number(id) },
       data: {
@@ -27,11 +23,11 @@ export const actions = {
     throw redirect(303, `/p/${id}`);
   },
 
-  deletePost: async ({ params: { id } }: { params: { id: Number } }) => {
+  deletePost: async ({ params: { id } }) => {
     await prisma.post.delete({
       where: { id: Number(id) },
     });
 
     throw redirect(303, '/')
   }
-};
+} satisfies Actions;

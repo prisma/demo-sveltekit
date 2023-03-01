@@ -1,13 +1,11 @@
-//src/route/drafts/+page.server.ts
-
 import prisma from '$lib/prisma';
+import type { PageServerLoad } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async () => {
+export const load = (async () => {
   const response = await prisma.post.findMany({
     where: { published: false },
     include: { author: true },
   })
 
   return { drafts: response };
-};
+}) satisfies PageServerLoad;
