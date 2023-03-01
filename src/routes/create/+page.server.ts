@@ -14,6 +14,10 @@ export const actions = {
       return fail(400, { content, authorEmail, title, missing: true });
     }
 
+    if (typeof title != "string" || typeof content != "string" || typeof authorEmail != "string") {
+      return fail(400, { incorrect: true })
+    }
+
     await prisma.post.create({
       data: {
         title,

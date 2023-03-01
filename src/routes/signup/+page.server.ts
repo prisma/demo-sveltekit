@@ -3,10 +3,7 @@ import prisma from "$lib/prisma";
 import { redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
-const validateEmail = (email: FormDataEntryValue) => {
-  if (typeof email != "string") {
-    return false
-  }
+const validateEmail = (email: string) => {
   return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
 }
 
@@ -19,6 +16,10 @@ export const actions = {
 
     if (!name || !userEmail) {
       return fail(400, { name, userEmail, missing: true });
+    }
+
+    if (typeof name != "string" || typeof userEmail != "string") {
+      return fail(400, { incorrect: true })
     }
 
     if (!validateEmail(userEmail)) {
