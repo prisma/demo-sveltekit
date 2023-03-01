@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+  import { page } from "$app/stores";
 </script>
 
 <nav>
   <div class="left">
-    <a class:active={$page.url.pathname === '/'} href="/">Blog</a>
-    <a class:active={$page.url.pathname === '/drafts'} href="/drafts">Drafts</a>
+    <a class:active={$page.url.pathname === "/"} href="/">Blog</a>
+    <a class:active={$page.url.pathname === "/drafts"} href="/drafts">Drafts</a>
   </div>
   <div class="right">
     <a href="/signup">Signup</a>
@@ -30,7 +30,7 @@
     margin-left: 1rem;
   }
 
-  .active{
+  .active {
     font-weight: bold;
   }
 
