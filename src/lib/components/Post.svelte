@@ -1,8 +1,8 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
- 
+  import type { PageData } from "./$types";
 
-  export let post:any
+  export let post: PageData;
 </script>
 
 <div class="post" on:click={() => goto(`/p/${post.id}`)}>

@@ -1,22 +1,22 @@
 <script lang="ts">
-  export let data: any
+  import type { PageData } from "./$types";
 
-  const { post } = data
-
+  export let data: PageData;
+  const { post } = data;
 </script>
 
 <div class="page">
   <main>
     <h2>{post.title}</h2>
-    <p>{post.author?.name ? `By ${post.author.name}` : 'Unknown author'}</p>
+    <p>{post.author?.name ? `By ${post.author.name}` : "Unknown author"}</p>
     <div>
       {@html post.content}
     </div>
     <form method="post" class="actions">
       {#if !post.published}
-        <button formaction="?/publishPost" >Publish</button>
+        <button formaction="?/publishPost">Publish</button>
       {/if}
-        <button formaction="?/deletePost">Delete</button>
+      <button formaction="?/deletePost">Delete</button>
     </form>
   </main>
 </div>
