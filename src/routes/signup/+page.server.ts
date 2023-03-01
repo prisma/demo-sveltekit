@@ -33,6 +33,6 @@ export const actions = {
       },
     });
 
-    throw redirect(303, `/drafts`)
+    throw redirect(303, `/`)
   }
 } satisfies Actions;
