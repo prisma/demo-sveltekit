@@ -1,7 +1,7 @@
 import prisma from "$lib/prisma";
 import { fail, redirect } from '@sveltejs/kit';
+import type { Actions } from './$types';
 
-/** @type {import('./$types').Actions} */
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
@@ -24,4 +24,4 @@ export const actions = {
 
     throw redirect(303, `/drafts`)
   }
-};
+} satisfies Actions;

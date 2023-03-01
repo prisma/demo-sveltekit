@@ -1,6 +1,7 @@
 <script lang="ts">
-  // import type { Post } from '@prisma/client'
-  export let data: any
+  import type { PageData } from './$types'
+
+  export let data: PageData
   const { post } = data
 </script>
 

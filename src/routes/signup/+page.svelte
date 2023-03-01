@@ -1,20 +1,16 @@
 <script lang="ts">
+  import type { ActionData } from "./$types";
 
+  export let form: ActionData;
 </script>
 
 <div class="page">
   <form method="post">
     <h1>Signup user</h1>
-    <input
-      placeholder="Name"
-      type="text"
-      name="name"
-    />
-    <input
-      placeholder="Email address"
-      type="text"
-      name="userEmail"
-    />
+    {#if form?.missing}<p class="error">Missing field required!</p>{/if}
+    {#if form?.incorrect}<p class="error">Invalid e-mail address!</p>{/if}
+    <input placeholder="Name" type="text" name="name" />
+    <input placeholder="Email address" type="text" name="userEmail" />
     <button type="submit">Signup</button>
 
     <a class="back" href="/"> or Cancel </a>
